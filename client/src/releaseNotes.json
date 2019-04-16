@@ -1,4 +1,91 @@
 {
+  "1.2.13": {
+    "features": [
+      "Adds support for each open window becoming its own client. This allows for multiple stations to be assigned on the same computer without opening incognito tabs or additional browsers. It keeps track of the clientIDs that you assign to windows in the order which they are opened. It also works really well with the new Thorium Kiosk, which appends the window number to the end of the client name."
+    ],
+    "fixes": [
+      "Fixes an issue where the transporter speed cannot be changed.",
+      "Fixes an issue where action commands cannot be sent to viewscreens.",
+      "Sound effects now only play in the simulator they are supposed to play in."
+    ]
+  },
+  "1.2.12": {
+    "fixes": [
+      "Removes weird Sound Player text on the viewscreen.",
+      "Transwarp cannot be activated when damaged or there isn't enough power.",
+      "Looping sounds are now cancelled when the flight is reset."
+    ]
+  },
+  "1.2.11": {
+    "features": [
+      "Adds a collapse all button to the core feed.",
+      "Add a brief note to the login training about the objectives widget.",
+      "Allows auto thrusters to rotate the sensor grid with yaw.",
+      "Makes it possible to turn keyboards and viewscreens into sound players, just like the sound player station.",
+      "Adds a 'Course set' scan preset. Thanks @JordanDeSmith."
+    ],
+    "fixes": [
+      "Fixed setting secondary viewscreens to auto.",
+      "Fixes issues with updating timeline steps.",
+      "Fixes issues with adding inventory to rooms.",
+      "Fixes the core feed messaging filter.",
+      "Properly loads the correct step name when configuring mission timeline steps.",
+      "Fixes a minor issue with the communications viewscreen.",
+      "Fixes issues with the army contacts macro."
+    ]
+  },
+  "1.2.10": {
+    "fixes": [
+      "You can now remove survey form fields.",
+      "Fixes issues with dropdown and checkbox survey form fields.",
+      "Fixes an issue where you cannot change sensor contact size.",
+      "Fixes issues with setting sickbay bunks.",
+      "Make it possible to update library types.",
+      "Fixes issues with setting the crew count on station set configs."
+    ]
+  },
+  "1.2.8": {
+    "features": [
+      "Add a macro for sending notifications to core.",
+      "If a system has more power in it than is necessary, it changes the system's color to yellow to indicate a problem.",
+      "Makes it possible to print multi-page cypher messages and change the header."
+    ],
+    "fixes": [
+      "The count on the simulator inventory config now shows the total count of the inventory item.",
+      "Fixes an issue where certain events that alter the viewscreen cause a server crash.",
+      "Add crack and uncrack to the actions macro.",
+      "Change the default for reactors to not be on external power, since clamps default to not docked and many missions start in space.",
+      "Fixes changing the heat rate in the systems config.",
+      "Fixes the wrapping on the timeline step display."
+    ]
+  },
+  "1.2.6": {
+    "fixes": [
+      "Fixes reactor efficiencies not updating on the config screen.",
+      "Fixes issues around playing sounds through the actions core and actions macro.",
+      "Fixes issues with the keypad core not allowing the required code to be changed."
+    ]
+  },
+  "1.2.5": {
+    "fixes": [
+      "Fixes an issue where you couldn't change the viewscreen from the core.",
+      "Fixes issues with ambiance not being removable.",
+      "Fixes changing the reactor output in the simulator config.",
+      "Fixes changing the delay when writing timeline steps.",
+      "All currently playing sounds on the sound player are now removed when the flight is reset.",
+      "Fixes the alert condition card.",
+      "Remove the LayoutDefault.",
+      "Fixes adding decks and rooms in the simulator config.",
+      "Fixes tactical map toggles for flash, WASD, etc.",
+      "Fixes the alert level selector in the simulator config.",
+      "Removes a hover state on the station description field.",
+      "Properly updates the name of the system in the list on the system config screen.",
+      "Fixes the targeting coordinates buttons.",
+      "If phaser charging exists on the same station, it will only show phaser firing on the targeting screen.",
+      "Fixes hold to charge phasers on targeting.",
+      "Fixes tactical maps not loading correctly."
+    ]
+  },
   "1.2.4": {
     "features": [
       "Makes it possible to change the opacity of planets, borders, and pings.",

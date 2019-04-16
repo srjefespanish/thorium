@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag.macro";
 import SubscriptionHelper from "helpers/subscriptionHelper";
-import Interfaces from "./interfaces";
+import InterfacesControl from "./interfaces";
 
 const fragment = gql`
   fragment InterfaceConfigData on Interface {
     id
     name
+    simulatorId
     deviceType {
       id
       name
@@ -67,9 +68,9 @@ class InterfacesData extends Component {
                 })
               }
             >
-              <Interfaces
+              <InterfacesControl
                 {...this.props}
-                interfaces={interfaces}
+                interfaces={interfaces.filter(i => !i.simulatorId)}
                 interfaceDevices={interfaceDevices}
               />
             </SubscriptionHelper>

@@ -147,7 +147,7 @@ export default class TimelineConfig extends Component {
       variables: obj
     });
   }
-  _updateItem(type, e) {
+  _updateItem = (type, e) => {
     let obj = {
       timelineStepId: this.state.selectedTimelineStep,
       timelineItemId: this.state.selectedTimelineItem
@@ -185,7 +185,7 @@ export default class TimelineConfig extends Component {
       `,
       variables: obj
     });
-  }
+  };
   _addTimelineStep = async inserted => {
     const name = prompt("What is the name of the timeline step?");
     const mutation = gql`
@@ -577,6 +577,7 @@ export default class TimelineConfig extends Component {
                   <Label>Step Name</Label>
                   <Input
                     type="text"
+                    key={step.id}
                     defaultValue={step && step.name}
                     onChange={this._updateStep.bind(this, "name")}
                   />
@@ -586,6 +587,7 @@ export default class TimelineConfig extends Component {
                   <Input
                     type="textarea"
                     rows={8}
+                    key={step.id}
                     defaultValue={step.description}
                     placeholder="Here is where you would explain what is going on during this part of the mission. This serves as your script, explaining what actions should be taken and where the story goes next."
                     onChange={this._updateStep.bind(this, "description")}
@@ -611,8 +613,12 @@ export default class TimelineConfig extends Component {
                       <Label>Item Delay (in milliseconds)</Label>
                       <Input
                         type="number"
-                        value={item.delay}
-                        onChange={this._updateItem.bind(this, "delay")}
+                        defaultValue={item.delay}
+                        onBlur={e =>
+                          this._updateItem("delay", {
+                            target: { value: parseInt(e.target.value) }
+                          })
+                        }
                       />
                     </FormGroup>
                     <MacroWrapper

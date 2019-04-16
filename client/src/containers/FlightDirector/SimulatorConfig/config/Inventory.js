@@ -135,22 +135,24 @@ class Inventory extends Component {
         defense: metadata.defense
       },
       roomCount: roomCount
-        .map(
-          r =>
-            r.room && {
-              room: r.room.id || r.room,
-              count: r.count
-            }
-        )
-        .filter(Boolean)
+        ? roomCount
+            .map(
+              r =>
+                r.room && {
+                  room: r.room.id || r.room,
+                  count: parseInt(r.count, 10)
+                }
+            )
+            .filter(Boolean)
+        : []
     };
     this.props.client.mutate({
       mutation,
       variables
     });
-    this.setState({
-      inventoryItem: null
-    });
+    // this.setState({
+    //   inventoryItem: null
+    // });
   };
   updateInventory = (key, value) => {
     this.setState({
@@ -262,8 +264,15 @@ class Inventory extends Component {
                       this.updateInventory("name", evt.target.value)
                     }
                   />
-                  <Label>Count</Label>
-                  <Input type="text" readOnly />
+                  <Label>Total Count</Label>
+                  <Input
+                    type="text"
+                    readOnly
+                    value={inventoryItem.roomCount.reduce(
+                      (prev, next) => prev + (parseInt(next.count, 10) || 0),
+                      0
+                    )}
+                  />
                   <Label>
                     <strong>Metadata</strong>
                   </Label>

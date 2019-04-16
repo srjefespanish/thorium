@@ -12,6 +12,7 @@ const fragment = gql`
   fragment SimulatorConfigData on Simulator {
     id
     name
+    alertlevel
     layout
     caps
     exocomps
@@ -333,6 +334,7 @@ class ConfigComponent extends React.PureComponent {
                 returnSimulator.stationSets.push({
                   id: ss.id,
                   name: ss.name,
+                  crewCount: ss.crewCount,
                   stations: ss.stations,
                   __typename: ss.__typename
                 });
